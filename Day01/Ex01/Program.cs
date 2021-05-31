@@ -11,7 +11,7 @@ namespace Ex01
 		static void Main(string[] args)
 		{
 			string input;
-			while ((input = Console.ReadLine()).CompareTo("quit") != 0)
+			while ((input = Console.ReadLine()).CompareTo("quit") != 0 && input.CompareTo("q") != 0)
 			{
 				if (input.CompareTo("add") == 0)
 					AddTask();
