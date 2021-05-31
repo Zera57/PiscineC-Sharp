@@ -8,10 +8,12 @@ namespace Ex00
 		static void Main(string[] args)
 		{
 			double sum;
-			if (!double.TryParse(args[1], out sum))
+			if (!double.TryParse(args[0].Split(' ')[0], out sum))
 				return;
-			Exchanger.Update("rates");
-			foreach (ExchangeRate item in Exchanger.GetExchangeRates(new ExchangeSum(args[0], sum)))
+			Exchanger.Update(args[1]);
+
+			ExchangeSum exchange = new ExchangeSum(args[0].Split(' ')[1], sum);
+			foreach (ExchangeRate item in Exchanger.GetExchangeRates(exchange))
 			{
 				Console.WriteLine(item.ToString());
 			}
